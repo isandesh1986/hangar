@@ -113,32 +113,32 @@ function createPR {
         repoName="${repoNameWithGit/.git}"
         # Create the Pull Request to merge into the specified branch.
         #debug
-        echo "glab mr create -b \"$targetBranch\" -d \"merge request $sourceBranch\" -s \"$sourceBranch\" -H \"${repoName}\" -t \"merge $sourceBranch\""
-        pr=$(glab mr create -b "$targetBranch" -d "merge request $sourceBranch" -s "$sourceBranch" -H "${repoName}" -t "merge $sourceBranch")
+        # echo "glab mr create -b \"$targetBranch\" -d \"merge request $sourceBranch\" -s \"$sourceBranch\" -H \"${repoName}\" -t \"merge $sourceBranch\""
+        # pr=$(glab mr create -b "$targetBranch" -d "merge request $sourceBranch" -s "$sourceBranch" -H "${repoName}" -t "merge $sourceBranch")
 
-        # trying to merge
-        if glab mr merge -s $(basename "$pr") -y
-        then
-            # Pull Request merged successfully.
-            echo -e "${green}Pull Request merged into $targetBranch branch successfully."
-            exit
-        else
-            # Check if the -w flag is activated.
-            if [[ "$webBrowser" == "true" ]]
-            then
-                # -w flag is activated and a page with the corresponding Pull Request is opened in the web browser.
-                echo -e "${green}Pull Request successfully created."
-                echo -e "${green}Opening the Pull Request on the web browser..."
-                python -m webbrowser "$pr"
-                exit
-            else
-                # -w flag is not activated and the URL to the Pull Request is shown in the console.
-                echo -e "${green}Pull Request successfully created."
-                echo -e "${green}To review the Pull Request and accept it, click on the following link:"
-                echo "${pr}"
-                exit
-            fi
-        fi
+        # # trying to merge
+        # if glab mr merge -s $(basename "$pr") -y
+        # then
+        #     # Pull Request merged successfully.
+        #     echo -e "${green}Pull Request merged into $targetBranch branch successfully."
+        #     exit
+        # else
+        #     # Check if the -w flag is activated.
+        #     if [[ "$webBrowser" == "true" ]]
+        #     then
+        #         # -w flag is activated and a page with the corresponding Pull Request is opened in the web browser.
+        #         echo -e "${green}Pull Request successfully created."
+        #         echo -e "${green}Opening the Pull Request on the web browser..."
+        #         python -m webbrowser "$pr"
+        #         exit
+        #     else
+        #         # -w flag is not activated and the URL to the Pull Request is shown in the console.
+        #         echo -e "${green}Pull Request successfully created."
+        #         echo -e "${green}To review the Pull Request and accept it, click on the following link:"
+        #         echo "${pr}"
+        #         exit
+        #     fi
+        # fi
     fi
 }
 
