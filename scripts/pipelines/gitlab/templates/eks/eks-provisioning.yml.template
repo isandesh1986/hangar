@@ -131,10 +131,10 @@ install_nginx:
     - *configure_packages   
     # INSTALL NGINX INGRESS CONTROLLER
     - cd ${TF_ROOT}/scripts
-    - chmod 755 install-nginx-ingress.sh
-    - ./install-nginx-ingress.sh
-    - chmod 755 obtain-dns.sh
-    - ./obtain-dns.sh   
+    # - chmod 755 install-nginx-ingress.sh
+    - ./.pipelines/scripts/install-nginx-ingress.sh
+    # - chmod 755 obtain-dns.sh
+    - ./.pipelines/scripts/obtain-dns.sh   
   cache:    
     key: "eks-pipeline-cache"
     paths:
