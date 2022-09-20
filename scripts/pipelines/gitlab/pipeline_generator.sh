@@ -122,22 +122,22 @@ function createPR {
             # Pull Request merged successfully.
             echo -e "${green}Pull Request merged into $targetBranch branch successfully."
             exit
-        else
-            # Check if the -w flag is activated.
-            if [[ "$webBrowser" == "true" ]]
-            then
-                # -w flag is activated and a page with the corresponding Pull Request is opened in the web browser.
-                echo -e "${green}Pull Request successfully created."
-                echo -e "${green}Opening the Pull Request on the web browser..."
-                python -m webbrowser "$pr"
-                exit
-            else
-                # -w flag is not activated and the URL to the Pull Request is shown in the console.
-                echo -e "${green}Pull Request successfully created."
-                echo -e "${green}To review the Pull Request and accept it, click on the following link:"
-                echo "${pr}"
-                exit
-            fi
+        # else
+        #     # Check if the -w flag is activated.
+        #     if [[ "$webBrowser" == "true" ]]
+        #     then
+        #         # -w flag is activated and a page with the corresponding Pull Request is opened in the web browser.
+        #         echo -e "${green}Pull Request successfully created."
+        #         echo -e "${green}Opening the Pull Request on the web browser..."
+        #         python -m webbrowser "$pr"
+        #         exit
+        #     else
+        #         # -w flag is not activated and the URL to the Pull Request is shown in the console.
+        #         echo -e "${green}Pull Request successfully created."
+        #         echo -e "${green}To review the Pull Request and accept it, click on the following link:"
+        #         echo "${pr}"
+        #         exit
+        #     fi
         fi
     fi
 }
