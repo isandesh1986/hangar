@@ -88,8 +88,7 @@ variables:
   - *install_helm
 
 check_input:
-  script:
-    - >
+  script: |
       if [ "$CLUSTER_NAME" == "" ]; then
         echo "Cluster Name is required."
         exit 1;
@@ -131,8 +130,8 @@ install_nginx:
     - *configure_packages   
     # INSTALL NGINX INGRESS CONTROLLER
     - cd ${TF_ROOT}/scripts
-    # - chmod 755 install-nginx-ingress.sh
-    - ./.pipelines/scripts/install-nginx-ingress.sh
+    # - chmod 755 install-ingress-controller.sh
+    - ./.pipelines/scripts/install-ingress-controller.sh
     # - chmod 755 obtain-dns.sh
     - ./.pipelines/scripts/obtain-dns.sh   
   cache:    
