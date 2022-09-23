@@ -131,7 +131,6 @@ install_nginx:
     - *update_kubeconfig
     - *configure_packages   
     # INSTALL NGINX INGRESS CONTROLLER
-    - cd ${TF_ROOT}/scripts
     # - chmod 755 install-ingress-controller.sh
     - ./.pipelines/scripts/install-ingress-controller.sh
     # - chmod 755 obtain-dns.sh
@@ -159,7 +158,6 @@ install_rancher:
     - *install_kubectl
     - *install_helm
     # INSTALL RANCHER
-    - cd ${TF_ROOT}/scripts
     - chmod 755 install-rancher.sh
     - ./install-rancher.sh
   rules:
