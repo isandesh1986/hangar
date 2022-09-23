@@ -21,7 +21,9 @@ variables:
  INSTALL_RANCHER:
    value: "$installRancher"   
    description: "Installs rancher when set to true."    
- TF_STATE_NAME: "AWS_EKS_STATE"
+ TF_STATE_NAME: 
+   value: "$terraformEKSState"
+   description: "Terraform EKS State Name"
  TF_CACHE_KEY: default
  TF_ROOT: "${CI_PROJECT_DIR}/.terraform/eks"
  TF_USERNAME: ${GITLAB_USER_NAME}
@@ -62,7 +64,7 @@ variables:
   - sudo ./aws/install
 
 .update_kubeconfig: &update_kubeconfig 
-  - aws eks update-kubeconfig --name ${CLUSTER_NAME} --region ${AWS_DEFAULT_REGION}	
+  - aws eks update-kubeconfig --name ${CLUSTER_NAME} --region ${region}	
 
 
 .download_kubectl: &download_kubectl
